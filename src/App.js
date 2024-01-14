@@ -1,5 +1,5 @@
 import './App.css';
-import { SplitScreen } from './Split_screen';
+import { SplitScreen } from './components/Split_screen';
 
 const LeftSideComp = ({title})=>{
   return(
