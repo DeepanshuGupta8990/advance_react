@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function UncontrolledFlow({children,onDone}) {
+export default function UncontrolledFlow({children}) {
     const [data,setData] = useState({});
     const [currentStepIndex,setCurrentStepIndex] = useState(0);
     const [formCompleted,setformCompleted] = useState(false);
@@ -8,7 +8,7 @@ export default function UncontrolledFlow({children,onDone}) {
     const currentChild = React.Children.toArray(children)[currentStepIndex];
 
     const goNext = (dataObject)=>{
-        if(currentStepIndex<2){
+        if(currentStepIndex<React.Children.toArray(children).length-1){
             setCurrentStepIndex(currentStepIndex+1);
             setData({
                 ...data,
