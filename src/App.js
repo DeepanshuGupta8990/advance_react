@@ -1,24 +1,16 @@
 import './App.css';
-import { SplitScreen } from './components/Split_screen';
-
-const LeftSideComp = ({title})=>{
-  return(
-    <h2 style={{background:'red'}}>{title}</h2>
-  )
-}
-
-const RightSideComp = ({title})=>{
-  return(
-    <h2 style={{background:'blue'}}>{title}</h2>
-  )
-}
+import { UserInfo } from './components/UserInfo';
+import { includeUser } from './components/include-user';
+import { logProps } from './components/log-props';
 
 function App() {
+  const UserInfoWrapper = logProps(UserInfo);
+  const UserInfoWrapper2 = includeUser(UserInfo,1);
   return (
-    <SplitScreen leftWidth={1} rightWidth={3}>
-      <LeftSideComp title='Left side component'/>
-      <RightSideComp title='Right side component'/>
-    </SplitScreen>
+    <>
+  <UserInfoWrapper test='test1' a={1}/>
+  <UserInfoWrapper2 test='test1' a='11'/>
+    </>
   );
 }
 
